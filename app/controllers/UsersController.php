@@ -60,6 +60,11 @@ class UsersController extends BaseController {
 		$this->layout->content = View::make('users.list',$data);
 	}
 	public function getIdentify(){
-	
+		$data=array('title'=>'identify the bird');
+		$this->layout->content = View::make('users.identify',$data);
+	}
+	public function postUpload(){
+		$data=array('title'=>'identify the bird');
+		$this->layout->content = View::make('users.upload',$data);
 	}
 }

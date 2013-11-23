@@ -37,3 +37,5 @@ Route::post('password/reset/{token}', array(
 ));
 
 Route::get('users/identify', array('before' => 'auth','UsersController@getIdentify'));
+Route::post('users/upload', array('before' => 'auth','UsersController@postUpload'));
+

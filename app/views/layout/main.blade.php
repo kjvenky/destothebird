@@ -65,6 +65,7 @@
         </style>
         <!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
         <link rel="stylesheet" href="{{URL::asset('css/main.css') }}" >
+		<link rel="stylesheet" href="{{URL::asset('css/upload/jquery.plupload.queue.css') }}" >
 
         <script src="{{URL::asset('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
     </head>
@@ -176,6 +177,11 @@
 
         <script src="{{ URL::asset('js/plugins.js')}}"></script>
         <script src="{{ URL::asset('js/main.js')}}"></script>
+		<!-- Third party script for BrowserPlus runtime (Google Gears included in Gears runtime now) -->
+		<script type="text/javascript" src="{{ URL::asset('js/plupload/js/browserplus-min.js')}}"></script>
+		<!-- Load plupload and all it's runtimes and finally the jQuery queue widget -->
+		<script type="text/javascript" src="{{ URL::asset('js/plupload/js/plupload.full.min.js')}}"></script>
+		<script type="text/javascript" src="{{ URL::asset('js/plupload/js/jquery.plupload.queue.js')}}"></script>
 		<script type="text/javascript">
 		$(document).ready(function() {
 			$('#myCarousel').carousel({
@@ -186,7 +192,48 @@
 				$(".nav li").removeClass("active");
 				$(this).addClass("active");
 			});
+			// Setup html5 version
+			$("#html5_uploader").pluploadQueue({
+				// General settings
+				runtimes : 'html5',
+				url : '../../upload',
+				chunk_size : '1mb',
+				unique_names : true,
+				
+				filters : {
+					max_file_size : '10mb',
+					mime_types: [
+						{title : "Image files", extensions : "jpg,gif,png"},
+						{title : "Zip files", extensions : "zip"}
+					]
+				},
+
+				// Resize images on clientside if we can
+				resize : {quality : 90}
+			});
+
+
+			// Setup html4 version
+			$("#html4_uploader").pluploadQueue({
+				// General settings
+				runtimes : 'html4',
+				url : '../../upload',
+				unique_names : true,				
+				filters : {
+					mime_types: [
+						{title : "Image files", extensions : "jpg,gif,png"},
+						{title : "Zip files", extensions : "zip"}
+					]
+				},
+			});
 		});
+		var canvas = document.createElement('canvas'), context;
+			if (!canvas.getContext) {
+				$("#html5_uploader").hide();
+			}
+			else{
+				$("#html4_uploader").hide();
+			}
 		Holder.add_theme("dark", {background:"#000", foreground:"#aaa", size:11, font: "Monaco"})
 		</script>
         <!--
