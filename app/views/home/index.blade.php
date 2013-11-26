@@ -56,7 +56,7 @@
 	        <!-- /Thumbnail Carousel -->
 
 	        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-	        <p><div class="col-md-6 center"><a href="{{URL::to('users/identify')}}" class='btn btn-primary btn-lg btn-block'><span class="glyphicon glyphicon-cloud-upload"></span>Upload to Identify</a></div></p>
+	        <p><div class="col-md-6 center"><a href="{{URL::to('users/upload')}}" class='btn btn-primary btn-lg btn-block'><span class="glyphicon glyphicon-cloud-upload"></span>Upload to Identify</a></div></p>
 	      </div>
 	    </div>
 	    

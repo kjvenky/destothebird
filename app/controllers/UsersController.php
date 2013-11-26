@@ -36,7 +36,12 @@ class UsersController extends BaseController {
 	   $this->layout->content = View::make('users.login');
 	}
 	public function postSignin() {
-		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')),true)) {
+	    if(Input::get('remember'))
+			$rememberme=true;
+		else
+			$rememberme=false;
+	
+		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')),$rememberme)) {
 		   return Redirect::to('/');//->with('message', 'You are now logged in!');
 		} else {
 		   return Redirect::to('users/login')
@@ -60,11 +65,28 @@ class UsersController extends BaseController {
 		$this->layout->content = View::make('users.list',$data);
 	}
 	public function getIdentify(){
+	/*  var_dump(Auth::user());
+		exit; 
+	*/
 		$data=array('title'=>'identify the bird');
 		$this->layout->content = View::make('users.identify',$data);
-	}
+	} 
 	public function postUpload(){
 		$data=array('title'=>'identify the bird');
 		$this->layout->content = View::make('users.upload',$data);
+	}
+	public function getUpload(){
+		//$data=array('title'=>'Upload audio to identify the bird');
+		$id = Auth::user()->id;
+		$data=array('alluploadbyu' => DB::table('users_upload')->where('uid','=',$id)->get());		
+		$this->layout->content = View::make('users.uploading',$data);
+	}
+	public function getIdentifyrequest(){
+		$data=array('title'=>'Upload audio to identify the bird');
+		$this->layout->content = View::make('users.identifyrequest',$data);
+	}
+	public function postIdentifyrequest(){
+		$data=array('title'=>'Upload audio to identify the bird');
+		$this->layout->content = View::make('users.identifyrequest',$data);
 	}
 }

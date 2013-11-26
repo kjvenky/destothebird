@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.gmail.com',//smtp.mailgun.org',
+	'host' => 'sumo.websitewelcome.com',//'smtp.gmail.com',//smtp.mailgun.org',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'chinmoym2004@gmail.com', 'name' => 'Chinmoy Laravel'),
+	'from' => array('address' => 'test@desto.co.in', 'name' => 'Desto Laravel Test'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'chinmoym2004@gmail.com',
+	'username' => 'test@desto.co.in',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => '(h|nm0\/',
+	'password' => 'Mail@desto123!',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -58,8 +58,23 @@ if (isset($_REQUEST["name"])) {
 	$fileName = uniqid("file_");
 }
 
-$filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
+//$filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
 
+$filePath = $targetDir . '/' . $fileName;
+
+$id = Auth::user()->id;
+
+// insert file info into db ---
+ 
+DB::table('users_upload')->insert(
+    array('uid' => $id, 'filpath' => $filePath,'status'=>'processing','created_at'=>date("Y-m-d H:i:s"))
+);
+
+
+//file_put_contents("test.txt", $id." ".$filePath."\n", FILE_APPEND | LOCK_EX);
+
+
+//return Response::json(array('name' => $filePath));
 // Chunking might be enabled
 $chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
 $chunks = isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;

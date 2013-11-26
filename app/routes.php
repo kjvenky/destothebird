@@ -15,6 +15,7 @@ Route::get('/','HomeController@getIndex');
 Route::controller('home','HomeController');
 
 Route::controller('users','UsersController');
+
 Route::get('password/reset', array(
   'uses' => 'PasswordController@remind',
   'as' => 'password.remind'
@@ -36,6 +37,5 @@ Route::post('password/reset/{token}', array(
   'as' => 'password.update'
 ));
 
-Route::get('users/identify', array('before' => 'auth','UsersController@getIdentify'));
-Route::post('users/upload', array('before' => 'auth','UsersController@postUpload'));
-
+Route::get('users/upload', array('before' => 'auth.basic','UsersController@getUpload'));
+Route::post('users/upload', array('before' => 'auth.basic','UsersController@postUpload'));

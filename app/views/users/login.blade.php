@@ -9,7 +9,7 @@
 	    <div class="control-group">
 			<div class="controls">
 				<label class="checkbox">
-					<input type="checkbox"><span class="metro-checkbox">Remember me</span>
+					 {{Form::checkbox('remember', 'remember', true)}}<span class="metro-checkbox">Remember me</span>
 				</label>
 				<div>{{ Form::submit('Login', array('class'=>'btn btn-primary'))}}&nbsp;&nbsp;&nbsp;{{ HTML::link('password/reset', 'Forgot Password?') }}</div>
 			</div>

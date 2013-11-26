@@ -187,7 +187,7 @@
 			$('#myCarousel').carousel({
 			interval: 10000
 			});
-			$(".alert").delay(3200).fadeOut(300);
+			//$(".alert").delay(3200).fadeOut(300);
 			$(".nav li").click(function(){
 				$(".nav li").removeClass("active");
 				$(this).addClass("active");

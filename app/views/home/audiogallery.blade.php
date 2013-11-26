@@ -1,5 +1,4 @@
 <div class="">
-	      <div class="container">
 	      	<div class="well">
 	      		<h1>Wildlife Acoustics</h1>
 	      	</div>
@@ -350,7 +349,4 @@
                 </div>
 				 
 			</div><!--/well-->
-
-	        
-	      </div>
-	    </div>
+</div>
